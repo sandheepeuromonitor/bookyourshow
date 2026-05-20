@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookYourShow</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* ================= HEADER ================= */
+
+.head{
+    width:100%;
+    background:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.logo h1{
+    font-size:32px;
+    font-family:cursive;
+    color:black;  
+}
+
+.logo span{
+    color:red;
+    font-family:cursive;    
+}
+.logo a{
+    text-decoration: none;
+}
+
+.search{
+    flex:1;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:250px;
+}
+
+.search input{
+    width:100%;
+    max-width:600px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    outline:none;
+}
+
+.search_btn{
+    padding:12px 20px;
+    border:none;
+    background:#d81f26;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.search_btn:hover{
+    background:red;
+}
+
+.right_head{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.drop select{
+    border:none;
+    outline:none;
+    background:transparent;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.sign_up{
+    padding:10px 20px;
+    border:none;
+    background:#d81f26;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.sign_up:hover{
+    background:red;
+}
+
+.menu_icon{
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* ================= NAVBAR ================= */
+
+.nav{
+    background:#333;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.nav_left,
+.nav_right{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.nav a{
+    color:white;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.nav a:hover{
+    color:red;
+}
+
+/* ================= BANNER ================= */
+
+.banner{
+    padding:30px 5%;
+}
+
+.banner img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.small_banner img{
+    height:120px;
+}
+
+/* ================= SECTION TITLE ================= */
+
+.title{
+    padding:0 5%;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size:28px;
+}
+
+/* ================= GRID ================= */
+
+.grid{
+    padding:20px 5%;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+}
+
+.box{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+    cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.box:hover{
+    transform:translateY(-5px);
+}
+
+.box img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    display:block;
+}
+.box a{
+    text-decoration:none;
+    color:black;
+}
+
+.small_grid .box img{
+    height:220px;
+}
+
+.rating{
+    background:#111;
+    text-align:center;
+}
+
+.rating h2{
+    color:white;
+    padding:10px;
+    font-size:14px;
+}
+
+.info{
+    padding:15px;
+    text-align:center;
+}
+
+.info h3{
+    margin-bottom:8px;
+    color:black;
+}
+
+.info p{
+    color:gray;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    margin-top:30px;
+    background:gray;
+    color:white;
+    text-align:center;
+    padding:18px;
+}
+
+/* ==================================================
+                RESPONSIVE DESIGN
+================================================== */
+
+/* ---------- Large Tablet ---------- */
+
+@media(max-width:1200px){
+
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .box img{
+        height:330px;
+    }
+}
+
+/* ---------- Tablet ---------- */
+
+@media(max-width:992px){
+
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .banner img{
+        height:240px;
+    }
+
+    .box img{
+        height:300px;
+    }
+
+    .title{
+        font-size:25px;
+    }
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+    .head{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .right_head{
+        justify-content:space-between;
+    }
+
+    .nav{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .box img{
+        height:260px;
+    }
+
+    .banner img{
+        height:200px;
+    }
+
+    .small_banner img{
+        height:100px;
+    }
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media(max-width:480px){
+
+    .logo h1{
+        font-size:26px;
+        text-align:center;
+    }
+
+    .search{
+        flex-direction:column;
+    }
+
+    .search_btn{
+        width:100%;
+    }
+
+    .nav_left,
+    .nav_right{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .box img{
+        height:350px;
+    }
+
+    .banner img{
+        height:160px;
+        border-radius:12px;
+    }
+
+    .title{
+        font-size:22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+    <!-- HEADER -->
+
+    <div class="head">
+
+        <div class="logo">
+            <a href="#">
+                <h1>Book<span>your</span>Show</h1>
+            </a>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="Search for movies, series....">
+            <button class="search_btn">Search</button>
+        </div>
+
+        <div class="right_head">
+
+            <div class="drop">
+                <select>
+                    <option>BLR</option>
+                    <option>Chennai</option>
+                    <option>Hyderabad</option>
+                </select>
+            </div>
+
+            <button class="sign_up">Sign In</button>
+
+            <div class="menu_icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+
+    <div class="nav">
+
+        <div class="nav_left">
+            <a href="#movie">Movies</a>
+            <a href="#Series">Series</a>
+            <a href="#live_events">Events</a>
+            <a href="about.html">About</a>
+        </div>
+
+        <div class="nav_right">
+            <a href="#">Your List</a>
+            <a href="#">Offers</a>
+            <a href="gift.html">Gifts</a>
+        </div>
+
+    </div>
+
+    <!-- BANNER -->
+
+    <div class="banner">
+        <img src="banner4.png" alt="Banner">
+    </div>
+
+    <!-- MOVIES -->
+
+    <h2 class="title" id="movie">Movies</h2>
+
+    <div class="grid">
+
+        <div class="box">
+            <a href="avengers.html">
+                <img src="avg.jpg" alt="">
+                <div class="rating">
+                    <h2>⭐ 4.5 / 5 10K + Like</h2>
+                </div>
+                <div class="info">
+                    <h3>Avengers</h3>
+                    <p>Action</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="box">
+            <img src="op.jpg" alt="">
+            <div class="rating">
+                <h2>⭐ 4.2 / 5 16K + Like</h2>
+            </div>
+            <div class="info">
+                <h3>Transformer</h3>
+                <p>Action</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="bat.jpeg" alt="">
+            <div class="rating">
+                <h2>⭐ 4.9 / 5 100K + Like</h2>
+            </div>
+            <div class="info">
+                <h3>Batman</h3>
+                <p>Action / Thriller</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="avg.jpg" alt="">
+            <div class="rating">
+                <h2>❤️ 4.5 / 5 10K + Love</h2>
+            </div>
+            <div class="info">
+                <h3>Avengers</h3>
+                <p>Action</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="op.jpg" alt="">
+            <div class="rating">
+                <h2>⭐ 4.9 / 5 100K + Like</h2>
+            </div>
+            <div class="info">
+                <h3>Transformer</h3>
+                <p>Action</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SMALL BANNER -->
+
+    <div class="banner small_banner">
+        <img src="banner2.avif" alt="">
+    </div>
+
+    <!-- LIVE EVENTS -->
+
+    <h2 class="title" id="live_events">Live Events</h2>
+
+    <div class="grid small_grid">
+
+        <div class="box">
+            <img src="avg.jpg" alt="">
+        </div>
+
+        <div class="box">
+            <img src="op.jpg" alt="">
+        </div>
+
+        <div class="box">
+            <img src="bat.jpeg" alt="">
+        </div>
+
+        <div class="box">
+            <img src="avg.jpg" alt="">
+        </div>
+
+        <div class="box">
+            <img src="small_grid1.avif" alt="">
+        </div>
+
+    </div>
+
+    <!-- SERIES -->
+
+    <h2 class="title" id="Series">Series</h2>
+
+    <div class="grid">
+
+        <div class="box">
+            <img src="bb.webp" alt="">
+            <div class="rating">
+                <h2>⭐ 4.5 / 5 10K + Like</h2>
+            </div>
+            <div class="info">
+                <h3>Breaking Bad</h3>
+                <p>Crime / Drama</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="tl.jpg" alt="">
+            <div class="rating">
+                <h2>⭐ 4.2 / 5 16K + Like</h2>
+            </div>
+            <div class="info">
+                <h3>The Terminal List</h3>
+                <p>Action / Drama</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="dark.jpg" alt="">
+            <div class="rating">
+                <h2>⭐ 4.9 / 5 100K + Like</h2>
+            </div>
+            <div class="info">
+                <h3>Dark</h3>
+                <p>Crime / Drama</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="boys.jpg" alt="">
+            <div class="rating">
+                <h2>❤️ 4.5 / 5 10K + Love</h2>
+            </div>
+            <div class="info">
+                <h3>The Boys</h3>
+                <p>Action</p>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="game.jpg" alt="">
+            <div class="rating">
+                <h2>⭐ 4.9 / 5 100K + Like</h2>
+            </div>
+            <div class="info">
+                <h3>Game of Thrones</h3>
+                <p>Fantasy / Action</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+        <p>© 2026 BookYourShow. All Rights Reserved.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
